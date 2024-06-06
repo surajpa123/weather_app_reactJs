@@ -73,8 +73,8 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen main-cont bg-blue-100 flex flex-col items-center justify-center p-4">
-        <div className="sticky top-0 text-center main-cont w-full sm:w-fit" >
+      <div className="min-h-screen main-cont bg-blue-100 flex flex-col items-center justify-center sm:p-4 p-0">
+        <div className="sticky top-0 text-center w-full sm:w-fit backdrop-blur-lg sm:p-0 p-4" >
         <h1 className="text-4xl text-center font-bold mb-4 flex gap-4 items-center p-4 justify-center">
           <FaSun className="h-8 w-8" color="#F05514"/>
           <span style={{ letterSpacing: "1px" }}>
