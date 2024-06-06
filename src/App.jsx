@@ -8,11 +8,13 @@ import { toast } from "react-toastify";
 import Loader from "./components/Loader";
 import useFetchForecast from "./hooks/useFetchForecast";
 import ForecastList from "./components/ForeCastList";
+import { FaSun } from "react-icons/fa6";
+
 
 function App() {
   const [location, setLocation] = useState("");
   const [unit, setUnit] = useState("metric");
-  const [searchByGeoLocation,setSearchByGeoLocation] = useState(false);
+  const [searchByGeoLocation, setSearchByGeoLocation] = useState(false);
 
   const {
     weatherData,
@@ -51,7 +53,7 @@ function App() {
   };
 
   const handleGeolocation = () => {
-    setSearchByGeoLocation(true)
+    setSearchByGeoLocation(true);
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -69,20 +71,23 @@ function App() {
     }
   };
 
-
   return (
     <>
       <div className="min-h-screen main-cont bg-blue-100 flex flex-col items-center justify-center p-4">
-        <h1 className="text-4xl font-bold mb-4">Weather App</h1>
-
+        <h1 className="text-4xl font-bold mb-4 flex gap-4 items-center">
+          <FaSun className="h-8 w-8" color="#F05514"/>
+          <span style={{ letterSpacing: "1px" }}>
+            Weather<span className="text-[#F05514]">App</span>
+          </span>
+        </h1>
         <SearchBar
           onSearch={handleSearch}
           unit={unit}
           setUnit={setUnit}
-          location = {location}
+          location={location}
           onGeolocation={handleGeolocation}
-          searchByGeoLocation = {searchByGeoLocation}
-          setSearchByGeoLocation = {setSearchByGeoLocation}
+          searchByGeoLocation={searchByGeoLocation}
+          setSearchByGeoLocation={setSearchByGeoLocation}
         />
 
         {weatherLoading ? (

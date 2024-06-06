@@ -18,17 +18,17 @@ const SearchBar = ({
   };
 
   useEffect(() => {
-
-    console.log(searchByGeoLocation,'setSearchByGeoLocation')
     if (searchByGeoLocation) {
       setInput(location);
     }
-  }, [location,searchByGeoLocation]);
+  }, [location, searchByGeoLocation]);
 
   const handleChange = (e) => {
     setInput(e.target.value);
     setSearchByGeoLocation(false);
   };
+
+  
 
   return (
     <div>
@@ -38,6 +38,7 @@ const SearchBar = ({
       >
         <div className="flex w-full mb-2 md:mb-0">
           <input
+
             type="text"
             value={input}
             onChange={(e) => handleChange(e)}

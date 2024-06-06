@@ -11,6 +11,8 @@ const WeatherCard = ({ data }) => {
   const { temp, humidity } = main;
   const description = weather[0]?.description;
 
+  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
