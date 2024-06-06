@@ -1,0 +1,13 @@
+@import "tailwindcss/tailwind.css";
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h1 {
+  @apply text-4xl font-bold mb-4;
+}
+
+.main-cont {
+  background-image: url("./assets/background.png");
+}
