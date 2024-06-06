@@ -18,10 +18,12 @@ const SearchBar = ({
   };
 
   useEffect(() => {
+
+    console.log(searchByGeoLocation,'setSearchByGeoLocation')
     if (searchByGeoLocation) {
       setInput(location);
     }
-  }, [location]);
+  }, [location,searchByGeoLocation]);
 
   const handleChange = (e) => {
     setInput(e.target.value);
