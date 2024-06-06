@@ -1,13 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaLocationArrow, FaSearch } from "react-icons/fa";
 
-const SearchBar = ({ onSearch, unit, setUnit, onGeolocation }) => {
+const SearchBar = ({
+  onSearch,
+  unit,
+  setUnit,
+  onGeolocation,
+  location,
+  searchByGeoLocation,
+  setSearchByGeoLocation,
+}) => {
   const [input, setInput] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onSearch(input);
   };
+
+  useEffect(() => {
+    if (searchByGeoLocation) {
+      setInput(location);
+    }
+  }, [location]);
+
+  const handleChange = (e) => {
+    setInput(e.target.value);
+    setSearchByGeoLocation(false);
+  };
+
   return (
     <div>
       <form
@@ -18,7 +38,7 @@ const SearchBar = ({ onSearch, unit, setUnit, onGeolocation }) => {
           <input
             type="text"
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => handleChange(e)}
             className="p-2 border rounded-l-md flex-grow"
             placeholder="Enter city or zip code"
           />

@@ -12,6 +12,7 @@ import ForecastList from "./components/ForeCastList";
 function App() {
   const [location, setLocation] = useState("");
   const [unit, setUnit] = useState("metric");
+  const [searchByGeoLocation,setSearchByGeoLocation] = useState(false);
 
   const {
     weatherData,
@@ -50,6 +51,7 @@ function App() {
   };
 
   const handleGeolocation = () => {
+    setSearchByGeoLocation(true)
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -67,6 +69,7 @@ function App() {
     }
   };
 
+
   return (
     <>
       <div className="min-h-screen main-cont bg-blue-100 flex flex-col items-center justify-center p-4">
@@ -76,7 +79,10 @@ function App() {
           onSearch={handleSearch}
           unit={unit}
           setUnit={setUnit}
+          location = {location}
           onGeolocation={handleGeolocation}
+          searchByGeoLocation = {searchByGeoLocation}
+          setSearchByGeoLocation = {setSearchByGeoLocation}
         />
 
         {weatherLoading ? (
