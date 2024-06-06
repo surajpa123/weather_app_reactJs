@@ -12,7 +12,6 @@ import ForecastList from "./components/ForeCastList";
 function App() {
   const [location, setLocation] = useState("");
   const [unit, setUnit] = useState("metric");
-  const [searchHistory, setSearchHistory] = useState([]);
 
   const {
     weatherData,
@@ -32,11 +31,10 @@ function App() {
   useEffect(() => {
     if (weatherData) {
       const { coord } = weatherData;
-      fetchForecast(coord.lat, coord.lon, unit);
-
-      if (!searchHistory.includes(location)) {
-        setSearchHistory([...searchHistory, location]);
+      if (weatherData?.name) {
+        setLocation(weatherData?.name);
       }
+      fetchForecast(coord.lat, coord.lon, unit);
     }
   }, [weatherData, unit]);
 
@@ -56,7 +54,6 @@ function App() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          console.log(position, "position");
           fetchWeatherByCoordinates(latitude, longitude, unit);
         },
         () => {
@@ -72,23 +69,6 @@ function App() {
 
   return (
     <>
-      {/* <div className="search-history  bg-blue-100 ">
-        <div className="flex items-center mb-2">
-          <h2
-            className="text-lg font-bold mr-2 cursor-pointer"
-            onClick={toggleHistory}
-          >
-            Search History
-          </h2>
-        </div>
-        {showHistory && (
-          <ul>
-            {searchHistory.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        )}
-      </div> */}
       <div className="min-h-screen main-cont bg-blue-100 flex flex-col items-center justify-center p-4">
         <h1 className="text-4xl font-bold mb-4">Weather App</h1>
 

@@ -28,16 +28,11 @@ const WeatherCard = ({ data }) => {
         <div className="flex items-center mb-2 gap-2">
         <ReactAnimatedWeather icon="WIND" size="20"/>
         <p>{wind?.speed} m/s </p>
-
-
-          {/* <WiStrongWind className="text-2xl mr-2" /> {wind?.speed} m/s */}
         </div>
         <div className="flex items-center gap-2">
           <ReactAnimatedWeather icon="RAIN" size="20" />
 
           <p>Humidity {humidity}%</p>
-
-          {/* <WiHumidity className="text-2xl mr-2" /> */}
         </div>
       </div>
     </motion.div>
