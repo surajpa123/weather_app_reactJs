@@ -10,7 +10,7 @@ const ForecastList = ({ forecast, unit }) => {
 
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 p-2">
       {data.map((day) => (
         <ForecastCard key={day} day={day} unit={unit} />
       ))}
