@@ -6,7 +6,6 @@ Welcome to the React Weather App! This application provides you with up-to-date 
 
 - **Real-Time Weather:** Fetches and displays current weather data for any location.
 - **Forecast:** Provides a detailed forecast for the upcoming days.
-- **Search History:** Keeps track of your recent searches for easy access.
 - **Unit Conversion:** Toggle between Celsius and Fahrenheit for temperature display.
 - **Responsive Design:** Works seamlessly across different screen sizes.
 - **Animations:** Utilizes the Framer Motion library for subtle animations.
